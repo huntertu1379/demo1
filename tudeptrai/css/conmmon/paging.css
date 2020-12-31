@@ -1,0 +1,25 @@
+﻿.paging-bar {
+    width: calc(100% - 32px);
+    height: 56px;
+    display: flex;
+    align-items:center;
+    padding:0px 16px;
+}
+    
+    .paging-bar .paging-center{
+        display:flex;
+        margin:0 auto;      
+    }
+        .paging-bar .paging-center .paging-btn {
+            border-radius: 50%;
+            border: 1px solid #808080;
+            text-align: center;
+            width: 25px;
+            height: 25px;
+            margin: auto 8px;       
+            cursor:pointer
+        }
+
+        .paging-bar .paging-center .paging-btn:hover {
+              background-color: #019160;
+        }

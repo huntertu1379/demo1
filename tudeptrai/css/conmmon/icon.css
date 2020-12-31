@@ -1,0 +1,48 @@
+﻿.icon-add {
+    width: 16px;
+    height: 16px;
+    background-image: url('/content/icon/add.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+.icon-search1 {
+    background-repeat:no-repeat;
+    background-image: url('/content/icon/search.png');
+    background-position:16px center;
+    width:16px;
+    height:16px;
+    
+}
+
+.icon-preall {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/content/icon/preall.png');
+    width: 10px;
+    background-size:contain
+}
+
+.icon-pre {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/content/icon/pre.png');
+    width: 10px;
+    background-size: contain
+}
+
+.icon-next {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/content/icon/next.png');
+    width: 10px;
+    background-size: contain
+}
+.icon-skip {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/content/icon/skip.png');
+    width: 10px;
+    background-size: contain
+}
+  
