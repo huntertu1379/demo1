@@ -5,19 +5,63 @@ class baseJs {
         this.getUrl = null;
         this.setUrl();
         this.loadData();
-        this.helo();
+        this.initEvents();
     }
 
-    helo() {
-        alert("tu dep trai");
-    }
+    /** 
+     * Hàm gán đường dẫn đến api
+     * CreatedBy:naTu(31/12/2020)
+     * */
     setUrl() {
 
     }
 
-    loadData() {
-        try {
+    /**
+     * Khởi tạo và xử lý các sự kiện
+     * Created by VHTHANG {29/12/2020}
+     * */
+    initEvents() {
+        // Sự kiện click khi nhấn thêm mới
+        $('#btnAdd').click(function () {
+            // Hiển thị dialog thông tin chi tiết
+            $('.m-dialog').show();
+        })
 
+        // Reload dữ liệu khi bấm refresh
+        $('#btnRefresh').click(function () {
+            this.loadData();
+        }.bind(this))
+
+        // Lưu dữ liệu khi bấm lưu
+        $('#btnSave').click(function () {
+            // Validate dữ liệu chung
+        });
+
+        // Tắt dialog khi bấm icon đóng
+        $('#btnClose').click(function () {
+            // Ẩn dialog thông tin chi tiết
+            $('.m-dialog').hide();
+        })
+
+        // Tắt dialog khi bấm hủy
+        $('#btnCancel').click(function () {
+            // Ẩn dialog thông tin chi tiết
+            $('.m-dialog').hide();
+        })
+
+        //Hiển thị thông tin chi thiết khi db-click 1 bản ghi
+        $('table tbody').on('dblclick', 'tr', function () {//gán sự kiện sau khi các phần tử được sinh ra
+            $('.m-dialog').show();
+        })
+
+    }
+
+    /**
+     * Hàm load dữ liệu lên table
+     * CreatedBy:naTu(31/12/2020)
+     * */
+    loadData() {
+        try {           
             //Lấy thông tin các cột dữ liệu
             var colnums = $('table thead th');
             var getUrl = this.getUrl;//Khai báo đường dẫn đến api
@@ -55,7 +99,7 @@ class baseJs {
                             td.append(`<input type="checkbox" />`);
                         } else {
                             td.append(value)//Nối chuỗi vào đầu thẻ<td>value</td>
-                        }                       
+                        }
                         $(tr).append(td);
                     })
                     $('table tbody').append(tr);

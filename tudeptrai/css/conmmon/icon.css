@@ -45,4 +45,30 @@
     width: 10px;
     background-size: contain
 }
-  
+
+
+.incon-cancel {
+    background-image: url('/content/icon/cancel-icon.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    width:30px;
+    height:30px;
+    background-size:20px;
+}
+
+.image-face {
+    background-image: url('/content/img/default-avatar.jpg');
+    width:150px;
+    height:150px;
+    background-size:contain;
+    background-repeat:no-repeat
+}
+.icon-save {
+    background-image: url('/content/icon/save.png');
+    background-repeat:no-repeat;
+    background-size:16px;
+    background-position:center;
+    width:13px;
+    height:13px;
+      
+}
