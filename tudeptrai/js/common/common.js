@@ -4,18 +4,19 @@
  * @param {any} date kiểu dữ liệu bất kỳ
  * CreatedBy:naTu(21/12/2020)
  */
-function fomatDate(date) {
-    if (date){
-        var dateDefault = new Date(date)
-        var day = dateDefault.getDate();
-        var month = dateDefault.getMonth() + 1;
-        if (day < 10) {
-            day = "0" + day;
-        }
-        var year = dateDefault.getFullYear();
+function formatDate(date) {
+    var date = new Date(date);
+    if (Number.isNaN(date)) {
+        return "";
+    } else {
+        var day = date.getDate();
+        if (day < 10)
+            day = '0' + day;
+        var month = date.getMonth() + 1;
+        month = month < 10 ? '0' + month : month;
+        var year = date.getFullYear();
         return day + "/" + month + "/" + year;
-    } 
-    return "";   
+    }
 }
 
 

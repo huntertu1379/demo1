@@ -1,4 +1,4 @@
-﻿.m-btn {
+.m-btn {
     display:flex;
     align-items:center;
     background-color: #019160;
@@ -36,8 +36,8 @@
         color:#000;
         font-size:13px;
         outline:none;
-        font-family:Google-Regular
-
+        font-family:Google-Regular;
+        cursor: pointer;
     }
 
     .m-btn-reset {

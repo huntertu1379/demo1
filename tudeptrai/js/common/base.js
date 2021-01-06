@@ -2,8 +2,9 @@
 class baseJs {
 
     constructor() {
-        this.getUrl = null;
-        this.setUrl();
+        this.host = "http://api.manhnv.net";
+        this.apiRouter = null;
+        this.setapiRouter();
         this.loadData();
         this.initEvents();
     }
@@ -12,15 +13,14 @@ class baseJs {
      * Hàm gán đường dẫn đến api
      * CreatedBy:naTu(31/12/2020)
      * */
-    setUrl() {
-
-    }
+    setapiRouter() {}
 
     /**
      * Khởi tạo và xử lý các sự kiện
-     * Created by VHTHANG {29/12/2020}
+     * CreatedBy naTu {5/1/2021}
      * */
     initEvents() {
+        var me = this;
         // Sự kiện click khi nhấn thêm mới
         $('#btnAdd').click(function () {
             // Hiển thị dialog thông tin chi tiết
@@ -35,7 +35,67 @@ class baseJs {
         // Lưu dữ liệu khi bấm lưu
         $('#btnSave').click(function () {
             // Validate dữ liệu chung
-        });
+            var inputValidates = $('input[required], input[type="email"]');//truy vấn đến những thẻ input có thuộc tính requied haowjc có type="email"
+            $.each(inputValidates, function (index, input) {//Sét từng thẻ input vừa tìm được
+                var value = $('input').val();//Đọc giá trị text trong ô input đó
+                $('input').trigger('blur');//Tự động gán sự kiện blur cho thẻ input đó
+            })
+            var invalidInput = $('input[valid="false"]');//Truy cập đến những thẻ input có thuộc tính valid="false"
+            if (invalidInput && invalidInput.length > 0) {//Nếu invalidInput khác null,>0 và độ dài khác 0
+                alert("Dữ liệu không hợp lệ, vui lòng kiểm tra lại");
+                invalidInput[0].focus();//Đưa con trỏ chuột vào vị trí invalidInput[0]
+                return;
+            }
+
+            // Lấy dữ liệu từ form đưa vào object
+            var employee = {};//Tạo đối tượng object rỗng
+            var inputs = $('input[fielName]');//Truy cập đến FielName của thẻ input
+            $.each(inputs, function (index, input) {//duyệt từng truwnowfg fielName 
+                var propertyName = $(this).attr('fielName');//Lấy giá trị fielName
+                var value = $(this).val();//Lấy giá trị value của thẻ input
+                if ($(this).attr('type') == 'radio') {
+                    if (this.checked) {
+                        employee[propertyName] = value;
+                    }
+                } else {
+                    employee[propertyName] = value;//Gán cho object 1 thuộc tính fielName có giá trị là value
+                }
+                debugger
+            })
+
+
+            //var object = {
+            //    "EmployeeCode": $('#txtEmployeeCode').val(),
+            //    "FullName": $('#txtFullName').val(),
+            //    "DateOfBirth": $('#txtDateOfBirth').val(),
+            //    "PhoneNumber": $('#txtPhoneNumber').val(),
+            //    "Email": $('#txtEmail').val(),
+            //    "IdentityNumber": $('#txtIdentityNumber').val(),
+            //    "Salary": $('#txtSalary').val(),
+            //    "PositionName": "Thu ngân",
+            //    "DepartmentName": $('#txtDepartmentName').val(),
+            //    "GenderName": "Không xác định",
+            //    "Address": $('#txtAddress').val()
+            //}
+
+            // Gọi service gửi về server
+            $.ajax({
+                url: me.host + me.apiRouter,
+                method: 'POST',
+                data: JSON.stringify(employee),
+                contentType: 'application/json',
+            }).done(function (res) {
+                // Hành động sau khi thêm thành công
+                // + Thông báo thành công
+                alert("Thêm thành công");
+                // + Ẩn dialog thêm khách hàng
+                $('.m-dialog').hide();
+                // + Reload dữ liệu
+                me.loadData();
+            }).fail(function (res) {
+                alert("thêm thất bại, vui lòng kiểm tra lại");
+            })
+        })
 
         // Tắt dialog khi bấm icon đóng
         $('#btnClose').click(function () {
@@ -50,8 +110,39 @@ class baseJs {
         })
 
         //Hiển thị thông tin chi thiết khi db-click 1 bản ghi
-        $('table tbody').on('dblclick', 'tr', function () {//gán sự kiện sau khi các phần tử được sinh ra
+        //Xác định khu vực cần gần sự kiện:vd .trong bảng table-tbody
+        $('table tbody'/*Phạm vi ảnh hưởng.Phải sinh r a trước khi thực hiện lệnh gán*/).on('dblclick'/*Sự kiện*/, 'tr'/*thẻ ảnh hưởng*/, function () {//gán sự kiện sau cho các phần tử được sinh ra sau lệnh gán 
             $('.m-dialog').show();
+        })
+
+
+        //Required field validator
+        $('input[required]').blur(function () {
+            //this.classList.add("border-red"); //native js
+            var value = $(this).val();
+            if (!value) {
+                $(this).addClass("border-red");
+                $(this).attr('title', 'Trường không được phép để trống');
+                $(this).attr('valid', false);
+            }
+            else {
+                $(this).removeClass('border-red');
+                $(this).attr('valid', true);
+            }
+        })
+
+        // Email format checker
+        $('input[type="email"]').blur(function () {
+            var value = $(this).val();
+            var emailReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!emailReg.test(value)) {
+                $(this).addClass("border-red");
+                $(this).attr('title', 'Định dạng email không đúng');
+                $(this).attr('valid', false);
+            } else {
+                $(this).removeClass('border-red');
+                $(this).attr('valid', true);
+            }
         })
 
     }
@@ -60,14 +151,15 @@ class baseJs {
      * Hàm load dữ liệu lên table
      * CreatedBy:naTu(31/12/2020)
      * */
-    loadData() {
-        try {           
+    loadData() {       
+        $(`table tbody`).empty();
+        try {
             //Lấy thông tin các cột dữ liệu
             var colnums = $('table thead th');
             var getUrl = this.getUrl;//Khai báo đường dẫn đến api
 
             $.ajax({
-                url: getUrl,//Lấy dữ liệu từ api
+                url: this.host + this.apiRouter,//Lấy dữ liệu từ api
                 method: "GET",
                 async: true,//hàm chạy trươc phải không có lỗi thì hàm chạy sau mới chạy đc
             }).done(function (res) {//Nếu lấy thành công thì làm gì đấy
@@ -81,7 +173,7 @@ class baseJs {
                         switch (formatType) {
                             case "ddmmyyyy"://Nếu formatType=ddmmyyyy
                                 td.addClass("text-align-center");//Thêm class css vào thẻ td
-                                value = fomatDate(value);//gọi hàm sử lý ngày tháng sử lý giá trị cũ
+                                value = formatDate(value);//gọi hàm sử lý ngày tháng sử lý giá trị cũ
                                 break;
                             case "Money":
                                 td.addClass("text-align-right");

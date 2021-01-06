@@ -102,7 +102,7 @@
                     <tr>
                         <th fileName="EmployeeCode"> Mã nhân viên</th>
                         <th fileName="FullName"> Họ và tên </th>
-                        <th fileName="DateOfBirth" fomatType="ddmmyyyy"> Ngày sinh </th>
+                        <th fileName="DateOfBirth" formatType="ddmmyyyy"> Ngày sinh </th>
                         <th fileName="Gender"> Giới tính </th>
                         <th fileName="Address" formatType="Adr"> Địa chỉ </th>
                         <th fileName="PhoneNumber"> Điện thoại </th>
@@ -138,7 +138,7 @@
         <div class="m-dialog-model"></div>
         <div class="m-dialog-child">
             <div class="dialog-header">
-                <div class="dialog-header-title">Thông tin khách hàng</div>
+                <div class="dialog-header-title">Thông tin nhân viên</div>
                 <div class="dialog-header-button">
                     <button id="btnClose" style="border:none;outline:none;border-radius:0 5px 0 0" class="incon-cancel"></button>
                 </div>
@@ -154,42 +154,42 @@
                 <div class="data-input">
                     <div class="row">
                         <div class="col">
-                            <label for="txtMaKhachHang">Mã khách hàng</label>
+                            <label for="txtEmployeeCode">Mã nhân viên(*)</label>
                         </div>
                         <div class="col">
-                            <label for="txtHoTen">Họ và tên</label>
+                            <label for="txtFullName">Họ và tên(*)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input id="txtMaKhachHang" type="text" />
+                            <input id="txtEmployeeCode" required type="text" fielName="EmployeeCode" />
                         </div>
                         <div class="col">
-                            <input id="txtHoTen" type="text" />
+                            <input id="txtFullName" required type="text" fielName="FullName" />
                         </div>
                     </div>
                     <div class="row mt-10">
                         <div class="col">
-                            <label for="txtMemberCardCode">Mã thẻ thành viên</label>
+                            <label for="txtIdentityNumber">Căn cước/Cmt</label>
                         </div>
                         <div class="col">
-                            <label for="txtGroupCustormer">Nhóm khách hàng</label>
+                            <label for="cbxPositionName">Nhóm khách hàng</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input id="txtMemberCardCode" type="text" />
+                            <input id="txtIdentityNumber" type="text" fielName="IdentityNumber"  />
                         </div>
                         <div class="col">
-                            <select style="width:200px;height:38px;outline:none;border-radius:4px;border:1px solid #bbb">
-                                <option>Vip</option>
-                                <option>Thường</option>
+                            <select id="cbxPositionName" style="width:200px;height:38px;outline:none;border-radius:4px;border:1px solid #bbb" fielName="PositionName">
+                                <option>Nhân viên quèn</option>
+                                <option>Có tý quyền</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mt-10">
                         <div class="col">
-                            <label for="txtDateOfBrith">Ngày sinh</label>
+                            <label for="txtDateOfBirth">Ngày sinh</label>
                         </div>
                         <div class="col">
                             <label>Giới tính</label>
@@ -197,11 +197,11 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input id="txtDateOfBrith" type="date" style="width:170px" />
+                            <input id="txtDateOfBirth" type="date" style="width:170px" fielName="DateOfBirth" />
                         </div>
                         <div class="col" style="align-self:center">
-                            <input type="radio" id="rdbNam" value="Nam" name="inputGender" />Nam
-                            <input type="radio" id="rdbNu" value="Nu" name="inputGender" />Nữ
+                            <input type="radio" id="rdbNam" value="1" name="inputGender" checked fielName="Gender" />Nam
+                            <input type="radio" id="rdbNu" value="0" name="inputGender" fielName="Gender" />Nữ
                         </div>
                     </div>
                 </div>
@@ -211,41 +211,53 @@
                             <label for="txtEmail">Email</label>
                         </div>
                         <div class="col">
-                            <label for="txtPhone">Số điện thoại</label>
+                            <label for="txtPhoneNumber">Số điện thoại(*)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-2">
-                            <input id="txtEmail" type="email" style="width:345px" />
+                            <input id="txtEmail" placeholder="example@gmail.com" type="email" style="width:345px" fielName="Email" />
                         </div>
                         <div class="col">
-                            <input id="txtPhone" type="text" />
+                            <input id="txtPhoneNumber" required type="text" fielName="PhoneNumber" />
                         </div>
                     </div>
 
 
                     <div class="row mt-10">
                         <div class="col-2">
-                            <label for="txtTenCT">Tên công ty</label>
+                            <label for="txtDepartmentName">Tên phòng ban</label>
                         </div>
                         <div class="col">
-                            <label for="txtMaSoThue">Mã số thuế</label>
+                            <label for="txtSalary">Mức lương</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-2">
-                            <input style="width:345px" id="txtTenCT" type="text" />
+                            <input style="width:345px" id="txtDepartmentName" type="text" fielName="DepartmentName" />
                         </div>
                         <div class="col">
-                            <input id="txtMaSoThue" type="text" />
+                            <input id="txtSalary" type="text" fielName="Salary" />
                         </div>
                     </div>
+
+                    <div class="row mt-10">
+                        <div class="col-2">
+                            <label for="txtAddress">Địa chỉ</label>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-full">
+                            <input id="txtAddress" type="text" style="width:101%;" fielName="Address" />
+                        </div>                      
+                    </div>
+
                 </div>
 
             </div>
             <div class="dialog-content-control">
                 <button id="btnCancel" style="background-color:#bbb">Hủy</button>
-                <button class="btn-save">
+                <button id="btnSave" class="btn-save">
                     <div class="icon-save"></div>
                     <div class="btnSave-text">Lưu</div>
                 </button>
