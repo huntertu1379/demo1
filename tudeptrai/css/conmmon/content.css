@@ -24,3 +24,6 @@
             right:16px;
         }
 
+.row-selected{
+    background-color:#b6ff00 !important;
+}

@@ -13,7 +13,7 @@ class baseJs {
      * Hàm gán đường dẫn đến api
      * CreatedBy:naTu(31/12/2020)
      * */
-    setapiRouter() {}
+    setapiRouter() { }
 
     /**
      * Khởi tạo và xử lý các sự kiện
@@ -21,10 +21,21 @@ class baseJs {
      * */
     initEvents() {
         var me = this;
+
         // Sự kiện click khi nhấn thêm mới
         $('#btnAdd').click(function () {
+            me.formMode = "add";
             // Hiển thị dialog thông tin chi tiết
             $('.m-dialog').show();
+            $(`input`).val(null);
+
+            //var select = $(`select#cbxPositionName`);
+            //select.empty();
+            //$.ajax({
+            //    url: me.host + me.apiRouter,
+            //    method: "GET",
+            //})
+
         })
 
         // Reload dữ liệu khi bấm refresh
@@ -34,68 +45,64 @@ class baseJs {
 
         // Lưu dữ liệu khi bấm lưu
         $('#btnSave').click(function () {
-            // Validate dữ liệu chung
-            var inputValidates = $('input[required], input[type="email"]');//truy vấn đến những thẻ input có thuộc tính requied haowjc có type="email"
-            $.each(inputValidates, function (index, input) {//Sét từng thẻ input vừa tìm được
-                var value = $('input').val();//Đọc giá trị text trong ô input đó
-                $('input').trigger('blur');//Tự động gán sự kiện blur cho thẻ input đó
-            })
-            var invalidInput = $('input[valid="false"]');//Truy cập đến những thẻ input có thuộc tính valid="false"
-            if (invalidInput && invalidInput.length > 0) {//Nếu invalidInput khác null,>0 và độ dài khác 0
-                alert("Dữ liệu không hợp lệ, vui lòng kiểm tra lại");
-                invalidInput[0].focus();//Đưa con trỏ chuột vào vị trí invalidInput[0]
-                return;
-            }
-
-            // Lấy dữ liệu từ form đưa vào object
-            var employee = {};//Tạo đối tượng object rỗng
-            var inputs = $('input[fielName]');//Truy cập đến FielName của thẻ input
-            $.each(inputs, function (index, input) {//duyệt từng truwnowfg fielName 
-                var propertyName = $(this).attr('fielName');//Lấy giá trị fielName
-                var value = $(this).val();//Lấy giá trị value của thẻ input
-                if ($(this).attr('type') == 'radio') {
-                    if (this.checked) {
-                        employee[propertyName] = value;
-                    }
-                } else {
-                    employee[propertyName] = value;//Gán cho object 1 thuộc tính fielName có giá trị là value
+            try {
+                // Validate dữ liệu chung
+                var inputValidates = $('input[required], input[type="email"]');//truy vấn đến những thẻ input có thuộc tính requied haowjc có type="email"
+                $.each(inputValidates, function (index, input) {//Sét từng thẻ input vừa tìm được
+                    var value = $('input').val();//Đọc giá trị text trong ô input đó
+                    $('input').trigger('blur');//Tự động gán sự kiện blur cho thẻ input đó
+                })
+                var invalidInput = $('input[valid="false"]');//Truy cập đến những thẻ input có thuộc tính valid="false"
+                if (invalidInput && invalidInput.length > 0) {//Nếu invalidInput khác null,>0 và độ dài khác 0
+                    alert("Dữ liệu không hợp lệ, vui lòng kiểm tra lại");
+                    invalidInput[0].focus();//Đưa con trỏ chuột vào vị trí invalidInput[0]
+                    return;
                 }
-                debugger
-            })
 
+                // Lấy dữ liệu từ form đưa vào object
+                var employee = {};//Tạo đối tượng object rỗng
+                var inputs = $('input[fielName]');//Truy cập đến FielName của thẻ input
+                $.each(inputs, function (index, input) {//duyệt từng truwnowfg fielName 
+                    var propertyName = $(this).attr('fielName');//Lấy giá trị fielName
+                    var value = $(this).val();//Lấy giá trị value của thẻ input
+                    if ($(this).attr('type') == 'radio') {
+                        if (this.checked) {
+                            employee[propertyName] = value;
+                        }
+                    } else {
+                        employee[propertyName] = value;//Gán cho object 1 thuộc tính fielName có giá trị là value
+                    }
+                })
 
-            //var object = {
-            //    "EmployeeCode": $('#txtEmployeeCode').val(),
-            //    "FullName": $('#txtFullName').val(),
-            //    "DateOfBirth": $('#txtDateOfBirth').val(),
-            //    "PhoneNumber": $('#txtPhoneNumber').val(),
-            //    "Email": $('#txtEmail').val(),
-            //    "IdentityNumber": $('#txtIdentityNumber').val(),
-            //    "Salary": $('#txtSalary').val(),
-            //    "PositionName": "Thu ngân",
-            //    "DepartmentName": $('#txtDepartmentName').val(),
-            //    "GenderName": "Không xác định",
-            //    "Address": $('#txtAddress').val()
-            //}
-
-            // Gọi service gửi về server
-            $.ajax({
-                url: me.host + me.apiRouter,
-                method: 'POST',
-                data: JSON.stringify(employee),
-                contentType: 'application/json',
-            }).done(function (res) {
-                // Hành động sau khi thêm thành công
-                // + Thông báo thành công
-                alert("Thêm thành công");
-                // + Ẩn dialog thêm khách hàng
-                $('.m-dialog').hide();
-                // + Reload dữ liệu
-                me.loadData();
-            }).fail(function (res) {
-                alert("thêm thất bại, vui lòng kiểm tra lại");
-            })
+                //Kiểm tra thao tác(sửa hay xóa)
+                var method = "POST"
+                if (me.formMode == "edit") {
+                    method = "PUT";
+                    employee.EmployeeId = me.Id;
+                }
+                // Gọi service gửi về server
+                $.ajax({
+                    url: me.host + me.apiRouter,
+                    method: method,
+                    data: JSON.stringify(employee),
+                    contentType: 'application/json',
+                }).done(function (res) {
+                    // Hành động sau khi thêm thành công
+                    // + Thông báo thành công
+                    alert("Thêm thành công");
+                    // + Ẩn dialog thêm khách hàng
+                    $('.m-dialog').hide();
+                    // + Reload dữ liệu
+                    me.loadData();
+                }).fail(function (res) {
+                    alert("thêm thất bại, vui lòng kiểm tra lại");
+                    console.log(res);
+                })
+            } catch (e) {
+                console.log(e);
+            }
         })
+
 
         // Tắt dialog khi bấm icon đóng
         $('#btnClose').click(function () {
@@ -112,8 +119,29 @@ class baseJs {
         //Hiển thị thông tin chi thiết khi db-click 1 bản ghi
         //Xác định khu vực cần gần sự kiện:vd .trong bảng table-tbody
         $('table tbody'/*Phạm vi ảnh hưởng.Phải sinh r a trước khi thực hiện lệnh gán*/).on('dblclick'/*Sự kiện*/, 'tr'/*thẻ ảnh hưởng*/, function () {//gán sự kiện sau cho các phần tử được sinh ra sau lệnh gán 
-            $('.m-dialog').show();
+            me.formMode = "edit";
+            try {
+                $(this).find(`td`).addClass(`row-selected`);
+                $('.m-dialog').show();
+                var Id = $(this).data('recordId');
+                var inputs = $('input[fielName]');//Lấy ra tất cả các thẻ input có fielName
+                $.ajax({
+                    url: me.host + me.apiRouter + `/${Id}`,//Lấy dữ liệu từ api
+                    method: "GET",
+                }).done(function (res) {
+                    var inputs = $(`input[fielName]`);
+                    $.each(inputs, function (index, input) {
+                        var propertyName = $(this).attr('fielName');
+                        var value = res[propertyName];
+                        $(this).val(value);
+                    })
+                })
+                    .fail(function () { })
+            } catch (e) {
+                console.log(e);
+            }
         })
+
 
 
         //Required field validator
@@ -151,7 +179,8 @@ class baseJs {
      * Hàm load dữ liệu lên table
      * CreatedBy:naTu(31/12/2020)
      * */
-    loadData() {       
+    loadData() {
+        $(`.loading`).show();
         $(`table tbody`).empty();
         try {
             //Lấy thông tin các cột dữ liệu
@@ -165,6 +194,7 @@ class baseJs {
             }).done(function (res) {//Nếu lấy thành công thì làm gì đấy
                 $.each(res, function (index, obj) {
                     var tr = $(`<tr></tr>`);//Truy vấn đến thẻ tr
+                    $(tr).data('recordId', obj['EmployeeId']);
                     $.each(colnums, function (index, th) {//Vòng lặp for:lấy giá trị của colnums tại vị trí index và gán vào obj
                         var td = $(`<td><div><span></span></div></td>`);//gán td là 1 chuỗi html
                         var fileName = $(th).attr('fileName');//Đọc giá trị các fileName:vd:EmployeesCode
@@ -196,6 +226,7 @@ class baseJs {
                     })
                     $('table tbody').append(tr);
                 })
+                $(`.loading`).hide();
 
             }).fail(function (res) {//Nếu lấy thất bại thì làm gì đấy
 
