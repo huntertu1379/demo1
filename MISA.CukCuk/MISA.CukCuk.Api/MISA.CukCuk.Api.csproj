@@ -11,5 +11,14 @@
     <PackageReference Include="MySql.Data" Version="8.0.22" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\MISA.CukCuk.Entities.csproj" />
+    <ProjectReference Include="..\MISA.ApplicationCore\MISA.ApplicationCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>

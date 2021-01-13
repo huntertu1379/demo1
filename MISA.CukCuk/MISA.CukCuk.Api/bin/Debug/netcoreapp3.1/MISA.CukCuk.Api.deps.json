@@ -25,6 +25,8 @@
       "MISA.CukCuk.Api/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.78",
+          "MISA.ApplicationCore": "1.0.0",
+          "MISA.CukCuk.Entities": "1.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.9",
           "MySql.Data": "8.0.22",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -1312,6 +1314,39 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
+        }
+      },
+      "MISA.ApplicationCore/1.0.0": {
+        "dependencies": {
+          "MISA.CukCuk.Entities": "1.0.0",
+          "MISA.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "MISA.ApplicationCore.dll": {}
+        },
+        "compile": {
+          "MISA.ApplicationCore.dll": {}
+        }
+      },
+      "MISA.CukCuk.Entities/1.0.0": {
+        "runtime": {
+          "MISA.CukCuk.Entities.dll": {}
+        },
+        "compile": {
+          "MISA.CukCuk.Entities.dll": {}
+        }
+      },
+      "MISA.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Dapper": "2.0.78",
+          "MISA.CukCuk.Entities": "1.0.0",
+          "MySql.Data": "8.0.22"
+        },
+        "runtime": {
+          "MISA.Infrastructure.dll": {}
+        },
+        "compile": {
+          "MISA.Infrastructure.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3643,6 +3678,21 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "MISA.ApplicationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MISA.CukCuk.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MISA.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

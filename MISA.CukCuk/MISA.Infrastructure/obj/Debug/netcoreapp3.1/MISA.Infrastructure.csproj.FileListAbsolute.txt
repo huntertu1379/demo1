@@ -1,0 +1,12 @@
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.dll
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.csprojAssemblyReference.cache
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.AssemblyInfoInputs.cache
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.AssemblyInfo.cs
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\bin\Debug\netcoreapp3.1\MISA.Infrastructure.deps.json
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\bin\Debug\netcoreapp3.1\MISA.Infrastructure.dll
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\bin\Debug\netcoreapp3.1\MISA.Infrastructure.pdb
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.pdb
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.csproj.CoreCompileInputs.cache
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.csproj.CopyComplete
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.dll
+F:\test\code\MISA.CukCuk\MISA.Infrastructure\obj\Debug\netcoreapp3.1\MISA.Infrastructure.pdb

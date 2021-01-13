@@ -1569,6 +1569,45 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "MISA.ApplicationCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "MISA.CukCuk.Entities": "1.0.0",
+          "MISA.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MISA.ApplicationCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.ApplicationCore.dll": {}
+        }
+      },
+      "MISA.CukCuk.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/MISA.CukCuk.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.CukCuk.Entities.dll": {}
+        }
+      },
+      "MISA.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Dapper": "2.0.78",
+          "MISA.CukCuk.Entities": "1.0.0",
+          "MySql.Data": "8.0.22"
+        },
+        "compile": {
+          "bin/placeholder/MISA.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -5711,11 +5750,28 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "MISA.ApplicationCore/1.0.0": {
+      "type": "project",
+      "path": "../MISA.ApplicationCore/MISA.ApplicationCore.csproj",
+      "msbuildProject": "../MISA.ApplicationCore/MISA.ApplicationCore.csproj"
+    },
+    "MISA.CukCuk.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/MISA.CukCuk.Entities.csproj",
+      "msbuildProject": "../Entities/MISA.CukCuk.Entities.csproj"
+    },
+    "MISA.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../MISA.Infrastructure/MISA.Infrastructure.csproj",
+      "msbuildProject": "../MISA.Infrastructure/MISA.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Dapper >= 2.0.78",
+      "MISA.ApplicationCore >= 1.0.0",
+      "MISA.CukCuk.Entities >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.9",
       "MySql.Data >= 8.0.22"
     ]
@@ -5745,7 +5801,14 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj": {
+              "projectPath": "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj"
+            },
+            "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj": {
+              "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

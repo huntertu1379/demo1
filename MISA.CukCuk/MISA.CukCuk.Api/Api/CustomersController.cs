@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MISA.CukCuk.Api.Model;
+using MISA.ApplicationCore;
+using MISA.CukCuk.Entities.Model;
 using MySql.Data.MySqlClient;
 
 namespace MISA.CukCuk.Api.Api
@@ -15,6 +16,7 @@ namespace MISA.CukCuk.Api.Api
     [ApiController]
     public class CustomersController : ControllerBase
     {
+        #region function for Customer
         /// <summary>
         /// Lấy tất cả thông tin khách hàng từ db 
         /// </summary>
@@ -23,33 +25,22 @@ namespace MISA.CukCuk.Api.Api
         [HttpGet]
         public IActionResult Get()
         {
-            //Khai báo địa chỉ database
-            var connectionString = "Host=103.124.92.43;Port=3306;Database= MISACukCuk_MF660_MVTHANH;User Id=nvmanh;Password=12345678";
-            //Tạo kết nối đến db
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-
-            //Lấy dữ liệu từ db
-            var customers = dbConnection.Query<Customer>("Proc_GetCustomers", commandType: CommandType.StoredProcedure);
+            var customerService = new CustomerService();
+            var customers = customerService.GetCustomers();
             return Ok(customers);
         }
 
         /// <summary>
         /// Lấy thông tin khách hàng theo id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">id của khách hàng</param>
         /// <returns></returns>
         /// CreatedBy:naTu(12/1/2021)
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
-            //Khai báo địa chỉ db
-            var connectionString = "Host=103.124.92.43;Port=3306;Database=MISACukCuk_MF660_MVTHANH;User Id=nvmanh;Password=12345678";
-            //Tạo kết nối đến db
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-
-            //Lấy dữ liệu từ db
-            var customer = dbConnection.Query<Customer>("Proc_GetCustomerById", new { CustomerId = id.ToString() }, commandType: CommandType.StoredProcedure).FirstOrDefault();
-
+            var customerService = new CustomerService();
+            var customer = customerService.GetCustomerById(id);
             //trả về kết quả truy vấn
             return Ok(customer);
         }
@@ -97,8 +88,29 @@ namespace MISA.CukCuk.Api.Api
         /// <returns></returns>
         ///CreatedBy:naTu(12/1/2021)
         [HttpPut]
-        public IActionResult put()
+        public IActionResult put([FromBody]Customer customer)
         {
+            //Khai báo địa chỉ db
+            string connectionString = "Host= ;Port= ;Database= ;User Id= ;Password=";
+            //Tạo kết nối với db
+            IDbConnection dbConnection = new MySqlConnection(connectionString);
+            //Tạo đối tượng lưu trữ thông tin cần sửa
+            DynamicParameters dynamicParameters = new DynamicParameters();//đối tượng map name vs value
+            var properties = customer.GetType().GetProperties();//Lấy ra tất cả thuộc tính có phạm vi truy cập là public
+            foreach(var property in properties)//Vòng lặp duyệt từng thuộc tính
+            {
+                var propertyName = property.Name;
+                var propertyValue = property.GetValue(customer);
+
+                if (propertyValue.GetType() == typeof(Guid))
+                {
+                    propertyValue = property.GetValue(customer).ToString();
+                }
+                dynamicParameters.Add($"@{propertyName}", propertyValue);//thực hiện gán value cho thuộc tính
+            }
+            //Thực hiện câu truy vấn
+            var res = dbConnection.Execute("update...", commandType: CommandType.Text ,param: dynamicParameters);
+            //Trả về kết quả truy vấn
             return Ok();
         }
 
@@ -106,12 +118,24 @@ namespace MISA.CukCuk.Api.Api
         /// <summary>
         /// Xóa thông tin một khách hàng khỏi db
         /// </summary>
+        /// <param name="id">id của khách hàng</param>
         /// <returns></returns>
         /// CreatedBy:naTu(12/1/2021)
-        [HttpDelete]
-        public IActionResult Delete()
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
         {
-            return Ok();
+            //Khai báo địa chỉ db
+            var connectionString = "Host= ;Port= ;Database= ;User Id= ;Password= ";
+            //Tạo kết nối đến db
+            IDbConnection dbConnection = new MySqlConnection(connectionString);
+
+            //Lấy dữ liệu từ db
+            var res = dbConnection.Execute("delete...", new { CustomerId = id.ToString()}, commandType: CommandType.StoredProcedure);
+
+            //trả về kết quả truy vấn
+            return Ok(res);
         }
+#endregion
     }
+
 }

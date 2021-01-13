@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MISA.CukCuk.Api.Model
+namespace MISA.CukCuk.Entities.Model
 {
     public class Customer
     {
@@ -89,7 +89,6 @@ namespace MISA.CukCuk.Api.Model
         public string ModifiedBy { get; set; }
 
         #endregion
-
 
     }
 }

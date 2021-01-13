@@ -1,0 +1,9 @@
+F:\test\code\MISA.CukCuk\Entities\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.deps.json
+F:\test\code\MISA.CukCuk\Entities\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.dll
+F:\test\code\MISA.CukCuk\Entities\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.pdb
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.csprojAssemblyReference.cache
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.AssemblyInfoInputs.cache
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.AssemblyInfo.cs
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.csproj.CoreCompileInputs.cache
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.dll
+F:\test\code\MISA.CukCuk\Entities\obj\Debug\netcoreapp3.1\MISA.CukCuk.Entities.pdb
