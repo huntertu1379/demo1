@@ -7,7 +7,10 @@ using Dapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MISA.ApplicationCore;
-using MISA.CukCuk.Entities.Model;
+using MISA.ApplicationCore.Enum;
+using MISA.ApplicationCore.Interfaces;
+using MISA.ApplicationCore.Model;
+using MISA.ApplicationCore.Service;
 using MySql.Data.MySqlClient;
 
 namespace MISA.CukCuk.Api.Api
@@ -16,6 +19,14 @@ namespace MISA.CukCuk.Api.Api
     [ApiController]
     public class CustomersController : ControllerBase
     {
+
+        #region Constructor
+        ICustomerService _customerService;
+        public CustomersController(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
+        #endregion
         #region function for Customer
         /// <summary>
         /// Lấy tất cả thông tin khách hàng từ db 
@@ -25,8 +36,7 @@ namespace MISA.CukCuk.Api.Api
         [HttpGet]
         public IActionResult Get()
         {
-            var customerService = new CustomerService();
-            var customers = customerService.GetCustomers();
+            var customers = _customerService.GetCustomers();
             return Ok(customers);
         }
 
@@ -39,8 +49,7 @@ namespace MISA.CukCuk.Api.Api
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
-            var customerService = new CustomerService();
-            var customer = customerService.GetCustomerById(id);
+            var customer = _customerService.GetCustomerById(id);
             //trả về kết quả truy vấn
             return Ok(customer);
         }
@@ -54,32 +63,19 @@ namespace MISA.CukCuk.Api.Api
         [HttpPost]
         public IActionResult Post([FromBody] Customer customer)
         {
-            //khai báo địa chỉ db
-            string connectionString = "Host=103.124.92.43;Port=3306;Database=MS0_147_NVMANH_CukCuk;User Id=nvmanh;Password=12345678;";
-            //Tạo kết nối vs db
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-            //tạo đối tượng lưu trữ thông tin cần lưu vào csdl
-            DynamicParameters dynamicParameters = new DynamicParameters();
-            var properties = customer.GetType().GetProperties();
-            foreach (var property in properties)
-            {
-                var propertyName = property.Name;
-                var propertyValue = property.GetValue(customer);
-                if (property.PropertyType == typeof(Guid))
-                {
-                    propertyValue = property.GetValue(customer).ToString();
-                }
-                dynamicParameters.Add($"@{propertyName}", propertyValue);
 
-            }
-            //thưc hiện câu truy vấn
-            var res = dbConnection.Execute("Proc_InsertCustomer", commandType: CommandType.StoredProcedure, param: dynamicParameters);
-            //trả về kết quả truy vấn
-            if (res > 0)
+            var serviceResult = _customerService.AddCustomer(customer);
+            if (serviceResult.MISACode == MisaCode.Notvalid)
             {
-                return Created("tạo thành công", customer);
+                return BadRequest(serviceResult.data);
             }
-            return BadRequest("lỗi nhập dữ liệu");
+            if (serviceResult.MISACode == MisaCode.Ivalid && (int)serviceResult.data > 0)
+            {
+                return Ok(serviceResult.data);
+            }
+            else
+                return NoContent();
+
         }
 
         /// <summary>
@@ -88,7 +84,7 @@ namespace MISA.CukCuk.Api.Api
         /// <returns></returns>
         ///CreatedBy:naTu(12/1/2021)
         [HttpPut]
-        public IActionResult put([FromBody]Customer customer)
+        public IActionResult put([FromBody] Customer customer)
         {
             //Khai báo địa chỉ db
             string connectionString = "Host= ;Port= ;Database= ;User Id= ;Password=";
@@ -97,7 +93,7 @@ namespace MISA.CukCuk.Api.Api
             //Tạo đối tượng lưu trữ thông tin cần sửa
             DynamicParameters dynamicParameters = new DynamicParameters();//đối tượng map name vs value
             var properties = customer.GetType().GetProperties();//Lấy ra tất cả thuộc tính có phạm vi truy cập là public
-            foreach(var property in properties)//Vòng lặp duyệt từng thuộc tính
+            foreach (var property in properties)//Vòng lặp duyệt từng thuộc tính
             {
                 var propertyName = property.Name;
                 var propertyValue = property.GetValue(customer);
@@ -109,7 +105,7 @@ namespace MISA.CukCuk.Api.Api
                 dynamicParameters.Add($"@{propertyName}", propertyValue);//thực hiện gán value cho thuộc tính
             }
             //Thực hiện câu truy vấn
-            var res = dbConnection.Execute("update...", commandType: CommandType.Text ,param: dynamicParameters);
+            var res = dbConnection.Execute("update...", commandType: CommandType.Text, param: dynamicParameters);
             //Trả về kết quả truy vấn
             return Ok();
         }
@@ -130,12 +126,12 @@ namespace MISA.CukCuk.Api.Api
             IDbConnection dbConnection = new MySqlConnection(connectionString);
 
             //Lấy dữ liệu từ db
-            var res = dbConnection.Execute("delete...", new { CustomerId = id.ToString()}, commandType: CommandType.StoredProcedure);
+            var res = dbConnection.Execute("delete...", new { CustomerId = id.ToString() }, commandType: CommandType.StoredProcedure);
 
             //trả về kết quả truy vấn
             return Ok(res);
         }
-#endregion
+        #endregion
     }
 
 }

@@ -1,13 +1,15 @@
-﻿using System;
+﻿
+using MISA.ApplicationCore.Enum;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MISA.ApplicationCore.Entities
 {
-    class ServiceResult
+    public class ServiceResult
     {
         public object data { get; set; }
         public string Messenger { get; set; }
-        public int MISACode { get; set; }
+        public MisaCode MISACode { get; set; }
     }
 }

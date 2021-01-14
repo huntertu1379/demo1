@@ -4,14 +4,14 @@
     "F:\\test\\code\\MISA.CukCuk\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {}
   },
   "projects": {
-    "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj": {
+    "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj",
-        "projectName": "MISA.CukCuk.Entities",
-        "projectPath": "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj",
+        "projectUniqueName": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj",
+        "projectName": "MISA.ApplicationCore",
+        "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\natu\\.nuget\\packages\\",
-        "outputPath": "F:\\test\\code\\MISA.CukCuk\\Entities\\obj\\",
+        "outputPath": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\natu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj": {
-                "projectPath": "F:\\test\\code\\MISA.CukCuk\\Entities\\MISA.CukCuk.Entities.csproj"
+              "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj": {
+                "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj"
               }
             }
           }
@@ -97,6 +97,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.78, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "MySql.Data": {
               "target": "Package",

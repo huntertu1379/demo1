@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bnFZXKGGwR/pzLo6iHJGoO0grCMckFW5zcYvW8ZvqabRY5/wE5+7f015qwdpk4GNc3g/U2UQnw5Hmgv4zHDxYA==",
+  "dgSpecHash": "v95Ef2qN+y1vuZ3vKX5brgQV3rcjXfM4tL4fQf6ZkC0Si/zbJ8utrO/JCKAiU+GIwKx+eTqir74Insxny5t/Uw==",
   "success": true,
   "projectFilePath": "F:\\test\\code\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\natu\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "C:\\Users\\natu\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\natu\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
+    "C:\\Users\\natu\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\natu\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\natu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\natu\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\natu\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",

@@ -35,8 +35,8 @@ F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\Dapper.dll
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\obj\Debug\netcoreapp3.1\MISA.CukCuk.Api.csproj.CoreCompileInputs.cache
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\obj\Debug\netcoreapp3.1\MISA.CukCuk.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.ApplicationCore.dll
-F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.dll
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.Infrastructure.dll
-F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.CukCuk.Entities.pdb
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.ApplicationCore.pdb
 F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\MISA.Infrastructure.pdb
+F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\test\code\MISA.CukCuk\MISA.CukCuk.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities
+namespace MISA.ApplicationCore.Enum
 {
     /// <summary>
     /// Misa code để xác định trạng thái của việc validate 
