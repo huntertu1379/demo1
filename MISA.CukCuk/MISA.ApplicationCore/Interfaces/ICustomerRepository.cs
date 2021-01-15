@@ -6,13 +6,8 @@ using System.Text;
 
 namespace MISA.ApplicationCore.Interfaces
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository:IBaseRespository<Customer>
     {
-        IEnumerable<Customer> GetCustomers();
-        Customer GetCustomerById(Guid customerId);
-        int AddCustomer(Customer customer);
-        ServiceResult UpdateCustomer(Customer customer);
-        ServiceResult DeleteCustomer(Guid customerId);
         Customer GetCustomerByCode(string customerCode);
     }
 }
