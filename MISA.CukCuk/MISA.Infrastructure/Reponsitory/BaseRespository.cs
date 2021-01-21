@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace MISA.Infrastructure.Reponsitory
@@ -70,6 +71,11 @@ namespace MISA.Infrastructure.Reponsitory
                 dynamicParameters.Add($"@{propertyName}", propertyValue);
             }
             return dynamicParameters;
+        }
+
+        public TEntity GetEntityBySpecs(string propertyName, object propertyValue)
+        {
+            return _dbConnection.Query<TEntity>($"Select * from {TableName} Where {propertyName}='{propertyValue}'").FirstOrDefault();
         }
         #endregion
     }

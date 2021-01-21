@@ -22,25 +22,9 @@ namespace MISA.Infrastructure.Reponsitory
 
         public Customer GetCustomerByCode(string customerCode)
         {
-            throw new NotImplementedException();
+            return _dbConnection.Query<Customer>("Proc_GetCustomerByCode",new{CustomerCode=customerCode}, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
 
-        private DynamicParameters MappingDBType<TEntities>(TEntities entities)
-        {
-            DynamicParameters dynamicParameters = new DynamicParameters();
-            var properties = entities.GetType().GetProperties();
-            foreach(var property in properties)
-            {
-                var propertyName = property.Name;
-                var propertyValue = property.GetValue(entities);
-                if (property.PropertyType == typeof(Guid))
-                {
-                    propertyValue = property.GetValue(entities).ToString();
-                }
-                dynamicParameters.Add($"@{propertyName}", propertyValue);
-            }
-            return dynamicParameters;
-        }
 
     }
 

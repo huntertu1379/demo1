@@ -11,5 +11,6 @@ namespace MISA.ApplicationCore.Interfaces
         int AddCustomer(TEntity entity);
         int UpdateCustomer(TEntity entity);
         int DeleteCustomer(Guid entityId);
+        TEntity GetEntityBySpecs(string propertyName, object propertyValue);
     }
 }

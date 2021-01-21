@@ -1,0 +1,105 @@
+﻿.navbar{
+    width:220px;
+    background-color:#ffffff;
+    height:100vh;
+    border-right:solid 1px #e5e5e5 ;
+    float:left
+}
+    .navbar .logo-site{
+        display:flex;
+        width:100%;
+        height:48px;
+       
+
+    }
+        .navbar .logo-site .logo-box {
+            display: flex;
+            position: absolute;
+            width: calc(100% - 24px);
+            height: 24px;
+            top: 12px;
+            left: 16px;
+           
+        }
+
+            .navbar .logo-box .toggo-icon {
+                width: 24px;
+                height: 24px;
+                background-image: url('/content/img/toggle.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .navbar .logo-box .amis-logo {
+                width:calc(100% - 24px);
+                height: 24px;
+                background-image: url('/content/img/cukcuk-logo.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-left:10px;
+            }
+
+    .navbar .nav-content {
+        width: 100%;
+    }
+
+        .navbar .nav-content .nav-item {
+            padding-left: 16px;
+            height: 44px;
+            line-height:44px;
+            cursor:pointer;
+            display:flex
+
+        }
+
+            .navbar .nav-content .nav-item:hover {
+                background-color: #e5e5e5;
+                font-family: GoogleSans-Regular;
+                font-size: 13px;
+                color: #000000;
+            }
+
+            .navbar .nav-content .nav-item:active {
+                font-family: GoogleSans-Medium;
+                font-size: 13px;
+                background-color: #019160;
+                color:#ffffff;
+            }
+
+            .navbar .nav-content .nav-item-icon {
+                width: 20px;
+                height: 20px;
+                align-self: center;
+                background-size: contain;
+                margin-right:10px
+            }
+
+            .navbar .nav-content .nav-item-icon-dashboard {
+                background-image: url('/content/icon/dashboard.png');
+            }
+
+
+            .navbar .nav-content .nav-item-icon-report {
+                background-image: url('/content/icon/report.png');
+            }
+
+            .navbar .nav-content .nav-item-icon-dicemployee {
+                background-image: url('/content/icon/dic-employee.png');
+            }
+
+            .navbar .nav-content .nav-item-icon-setting {
+                background-image: url('/content/icon/setting.png');
+            }
+
+
+
+
+@font-face {
+    font-family: 'GoogleSans-Medium';
+    src: url('../../content/font/GoogleSans-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../../content/font/GoogleSans-Regular.otf') format('opentype');
+}

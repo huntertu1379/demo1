@@ -1,0 +1,21 @@
+.Grid {
+   
+    height: calc(100vh - 202px);
+    padding: 0 16px;
+    overflow:scroll;                                                     
+}
+    .Grid table {
+       width:100%;
+       border-spacing:0px;
+       
+    }
+
+        table th, td{
+            border-bottom:1px solid #bbb;
+            text-align:left;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            padding:10px 8px 10px 10px;
+            width: 50px;
+        }

@@ -13,10 +13,30 @@ namespace MISA.ApplicationCore.Service
     public class CustomerService:BaseService<Customer>, ICustomerService
     {
         #region Constructor
-        IBaseRespository<Customer> _customerRepository;
-        public CustomerService(IBaseRespository<Customer> customerRepository):base(customerRepository)
+        ICustomerRepository _customerRepository;
+        public CustomerService(ICustomerRepository customerRepository) :base(customerRepository)
         {
             _customerRepository = customerRepository;
+        }
+        public override int AddCustomer(Customer entity)
+        {
+
+            ////validate thông tin
+            //var Ivalid = true;
+            ////1.Check trùng mã
+            //var Duplicate = _customerRepository.GetCustomerByCode(entity.CustomerCode);
+            //if (Duplicate != null)
+            //{
+            //    Ivalid = false;
+            //}
+            //if (Ivalid == true)
+            //{
+                return base.AddCustomer(entity);
+            //}
+            //else
+            //{
+            //    return 0;
+            //}
         }
 
         public IEnumerable<Customer> GetCustomerByGroupId(Guid CustomerGroupId)

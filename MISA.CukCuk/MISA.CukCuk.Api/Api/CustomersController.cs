@@ -20,10 +20,10 @@ namespace MISA.CukCuk.Api.Api
     {
 
         #region Constructor
-        IBaseService<Customer> _baseService;
-        public CustomersController(IBaseService<Customer> baseService):base(baseService)
+        ICustomerService _customerService;
+        public CustomersController(ICustomerService customerService):base(customerService)
         {
-            _baseService = baseService;
+            _customerService = customerService;
         }
         #endregion
     //    #region function for Customer

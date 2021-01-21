@@ -1,0 +1,68 @@
+﻿.header{
+    width:calc(100% - 221px);
+    background-color:#ffffff;
+    height:48px;
+    border-bottom:1px solid #e5e5e5;
+    float:left;
+}
+
+    .header .restaurant{       
+        position:absolute;
+        display:flex;
+      
+    }
+
+        .header .restaurant .header-icon-restaurant {
+            background-size: contain;
+            background-image: url('/content/img/restaurant.png');
+            width: 30px;
+            height: 30px;
+            margin:9px 0px 9px 24px;           
+        }
+
+        .header .restaurant .selection select {
+            margin:16px 0px 16px 16px;
+            border: none;
+                   
+                
+        }
+
+            select {
+                -webkit-padding-end: 10px;
+            }
+
+
+        .header .infor .header-icon-message {
+            float:right;
+            background-size: contain;
+            background-image: url('/content/icon/mess.png');
+            width: 30px;
+            height: 30px;
+            margin:9px 16px 9px 0px;
+
+        }
+
+        .header .infor .header-icon-person {
+            float: right;
+            background-size: contain;
+            background-image: url('../../content/icon/avatar-default.png');
+            width: 30px;
+            height: 30px;
+            margin: 9px auto;
+        }
+
+        .header .infor .header-person-name {
+            float: right;
+            margin: 16px 0px 16px 16px;
+        }
+
+        .header .infor .header-icon-option {
+            float: right;
+            background-size: contain;
+            background-image: url('/content/icon/option.png');
+            width: 20px;
+            height: 20px;
+            margin: 14px 16px;
+        }
+
+

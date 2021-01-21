@@ -11,26 +11,35 @@ namespace MISA.ApplicationCore.Model
         /// <summary>
         /// Khóa chính
         /// </summary>
+        [PrimaryKey]
         public Guid CustomerId { get; set; }
 
         /// <summary>
         /// mã khách hàng
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public string CustomerCode { get; set; }
 
         /// <summary>
         /// họ tên
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public string FullName { get; set; }
 
         /// <summary>
         /// số thẻ thành viên
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public string MemberCardCode { get; set; }
 
         /// <summary>
         /// nhóm khách hàng
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public Guid CustomerGroupId { get; set; }
 
         /// <summary>
@@ -46,11 +55,15 @@ namespace MISA.ApplicationCore.Model
         /// <summary>
         /// địa chỉ email
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public string Email { get; set; }
 
         /// <summary>
         /// số điện thoại
         /// </summary>
+        [Requirt]
+        [CheckDuplicate]
         public string PhoneNumber { get; set; }
 
         /// <summary>

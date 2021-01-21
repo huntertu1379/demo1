@@ -41,8 +41,10 @@ namespace MISA.CukCuk.Api.Api
 
         // POST api/<BaseEntityController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int Post([FromBody] TEntity value)
         {
+            var rowAffect = _baseService.AddCustomer(value);
+            return rowAffect;
         }
 
         // PUT api/<BaseEntityController>/5

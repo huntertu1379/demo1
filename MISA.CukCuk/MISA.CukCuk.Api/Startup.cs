@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,6 +46,10 @@ namespace MISA.CukCuk.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+
+            //Cấu hình html
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
