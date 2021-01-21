@@ -9,11 +9,10 @@ class EmployeeJS extends baseJs {
   * CreatedBy:naTu(31/12/2020)
   * */
     constructor() {
-        debugger;
         super();
     }
 
     setapiRouter() {
-        this.apiRouter = "/api/V1/customer";
+        this.apiRouter = "/api/V1/customers";
     }
 }

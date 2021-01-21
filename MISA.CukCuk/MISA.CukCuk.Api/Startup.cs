@@ -50,6 +50,7 @@ namespace MISA.CukCuk.Api
 
             //Cấu hình html
             app.UseStaticFiles();
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {

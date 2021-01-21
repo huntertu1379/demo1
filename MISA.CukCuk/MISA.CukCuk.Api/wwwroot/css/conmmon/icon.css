@@ -1,4 +1,4 @@
-﻿.icon-add {
+.icon-add {
     width: 16px;
     height: 16px;
     background-image: url('/content/icon/add.png');
@@ -58,8 +58,8 @@
 
 .image-face {
     background-image: url('/content/img/default-avatar.jpg');
-    width:150px;
-    height:150px;
+    width:160px;
+    height:160px;
     background-size:contain;
     background-repeat:no-repeat
 }
@@ -70,5 +70,5 @@
     background-position:center;
     width:13px;
     height:13px;
-      
+    margin-left: 16px;
 }

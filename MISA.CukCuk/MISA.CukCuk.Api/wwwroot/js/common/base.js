@@ -1,8 +1,7 @@
 class baseJs {
 
     constructor() {
-        debugger;
-        this.host ="http://localhost:64871";
+        this.host ="";
         this.apiRouter = null;
         this.setapiRouter();
         this.loadData();

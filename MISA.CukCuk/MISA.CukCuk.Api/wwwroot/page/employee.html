@@ -154,6 +154,12 @@
                 <div class="data-input">
                     <div class="row">
                         <div class="col">
+                            <div class="data-title-text">A.Thông tin nhân viên</div>
+                            <hr class="hr-lable" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <label for="txtEmployeeCode">Mã nhân viên(*)</label>
                         </div>
                         <div class="col">
@@ -168,25 +174,7 @@
                             <input id="txtFullName" required type="text" fielName="FullName" />
                         </div>
                     </div>
-                    <div class="row mt-10">
-                        <div class="col">
-                            <label for="txtIdentityNumber">Căn cước/Cmt</label>
-                        </div>
-                        <div class="col">
-                            <label for="cbxPositionName">Loại nhân viên</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input id="txtIdentityNumber" type="text" fielName="IdentityNumber"  />
-                        </div>
-                        <div class="col">
-                            <select id="cbxPositionName" style="width:200px;height:38px;outline:none;border-radius:4px;border:1px solid #bbb" fielName="PositionName">
-                                <option>Nhân viên quèn</option>
-                                <option>Có tý quyền</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="row mt-10">
                         <div class="col">
                             <label for="txtDateOfBirth">Ngày sinh</label>
@@ -200,10 +188,31 @@
                             <input id="txtDateOfBirth" type="date" style="width:170px" fielName="DateOfBirth" />
                         </div>
                         <div class="col" style="align-self:center">
-                            <input type="radio" id="rdbNam" value="1" name="inputGender" checked fielName="Gender" />Nam
-                            <input type="radio" id="rdbNu" value="0" name="inputGender" fielName="Gender" />Nữ
+                           <select class="gender-select">
+                               <option>Nam</option>
+                               <option>Nữ</option>
+                               <option>Khác</option>
+                           </select>
                         </div>
                     </div>
+
+                    <div class="row mt-10">
+                        <div class="col">
+                            <label for="txtIdentityNumber">Căn cước/Cmt</label>
+                        </div>
+                        <div class="col">
+                            <label for="txtLevelDate">Ngày cấp</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input id="txtIdentityNumber" type="text" fielName="IdentityNumber" />
+                        </div>
+                        <div class="col">
+                            <input type="date" id="txtLevelDate" fielName="LevelDate"/>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="data-input-2">
                     <div class="row mt-10">

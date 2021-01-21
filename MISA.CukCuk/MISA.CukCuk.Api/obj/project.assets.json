@@ -5827,11 +5827,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\test\\code\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
+      "projectUniqueName": "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
       "projectName": "MISA.CukCuk.Api",
-      "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
+      "projectPath": "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.CukCuk.Api\\MISA.CukCuk.Api.csproj",
       "packagesPath": "C:\\Users\\natu\\.nuget\\packages\\",
-      "outputPath": "F:\\test\\code\\MISA.CukCuk\\MISA.CukCuk.Api\\obj\\",
+      "outputPath": "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.CukCuk.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\natu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5847,11 +5847,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj": {
-              "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj"
+            "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj": {
+              "projectPath": "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.ApplicationCore\\MISA.ApplicationCore.csproj"
             },
-            "F:\\test\\code\\MISA.CukCuk\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
-              "projectPath": "F:\\test\\code\\MISA.CukCuk\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
+            "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\natu\\Desktop\\demo1\\MISA.CukCuk\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
             }
           }
         }

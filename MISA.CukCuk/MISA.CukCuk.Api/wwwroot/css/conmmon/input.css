@@ -4,6 +4,8 @@ input {
     outline: none;
     padding: 10px 16px;
     /* margin-left: 10px; */
+    width: 88%;
+    height: 18px;
 }
 
 .input::placeholder {
