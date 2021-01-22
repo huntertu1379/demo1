@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace MISA.ApplicationCore.Model
 {
-    public class Customer
+    public class Customer:BaseEntity
     {
+        public Customer() { }
         #region Property
         /// <summary>
         /// Khóa chính
@@ -80,26 +81,6 @@ namespace MISA.ApplicationCore.Model
         /// địa chỉ
         /// </summary>
         public string Address { get; set; }
-
-        /// <summary>
-        /// ngày tạo
-        /// </summary>
-        public DateTime? CreatedDate { get; set; }
-
-        /// <summary>
-        /// người tạo
-        /// </summary>
-        public string CreatedBy { get; set; }
-
-        /// <summary>
-        /// ngày chỉnh sửa cuối
-        /// </summary>
-        public DateTime? ModifiedDate { get; set; }
-
-        /// <summary>
-        /// người chỉnh sửa cuối
-        /// </summary>
-        public string ModifiedBy { get; set; }
 
         #endregion
 

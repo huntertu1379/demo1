@@ -18,7 +18,7 @@ namespace MISA.ApplicationCore.Service
         {
             _customerRepository = customerRepository;
         }
-        public override int AddCustomer(Customer entity)
+        public override int Add(Customer entity)
         {
 
             ////validate thông tin
@@ -31,7 +31,7 @@ namespace MISA.ApplicationCore.Service
             //}
             //if (Ivalid == true)
             //{
-                return base.AddCustomer(entity);
+                return base.Add(entity);
             //}
             //else
             //{

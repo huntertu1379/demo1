@@ -16,7 +16,7 @@ namespace MISA.Infrastructure.Reponsitory
         IConfiguration _configuration;//Tạo đối tượng đọ cfile appsetting
         protected IDbConnection _dbConnection = null;
         string _connectionString = "";
-        protected string TableName=typeof(TEntity).Name;
+        protected string _TableName=typeof(TEntity).Name;
         #endregion
 
         #region Contructor
@@ -29,29 +29,30 @@ namespace MISA.Infrastructure.Reponsitory
         #endregion
 
         #region Method
-        public int AddCustomer(TEntity entity)
+        public int Add(TEntity entity)
         {
             var parameter = MappingDBType(entity);
-            var res = _dbConnection.Execute($"Proc_Insert{TableName}", param: parameter, commandType: CommandType.StoredProcedure);
+            var res = _dbConnection.Execute($"Proc_Insert{_TableName}", param: parameter, commandType: CommandType.StoredProcedure);
             return res;
         }
 
-        public int DeleteCustomer(Guid entityId)
+        public int Delete(Guid entityId)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity GetCustomerById(Guid entityId)
+        public virtual TEntity GetEntityById(Guid entityId)
         {
-            throw new NotImplementedException();
+            var res = _dbConnection.Query<TEntity>($"Select * from {_TableName} where {_TableName}Id="+"\""+entityId.ToString()+"\"", commandType: CommandType.Text).FirstOrDefault();
+            return res;
         }
 
         public IEnumerable<TEntity> GetEntities()
         {
-            return _dbConnection.Query<TEntity>("Proc_GetCustomers", commandType: CommandType.StoredProcedure); ;
+            return _dbConnection.Query<TEntity>($"Proc_Get{_TableName}s", commandType: CommandType.StoredProcedure); ;
         }
 
-        public int UpdateCustomer(TEntity entity)
+        public int Update(TEntity entity)
         {
             throw new NotImplementedException();
         }
@@ -75,8 +76,8 @@ namespace MISA.Infrastructure.Reponsitory
 
         public TEntity GetEntityBySpecs(string propertyName, object propertyValue)
         {
-            return _dbConnection.Query<TEntity>($"Select * from {TableName} Where {propertyName}='{propertyValue}'").FirstOrDefault();
+            return _dbConnection.Query<TEntity>($"Select * from {_TableName} Where {propertyName}='{propertyValue}'").FirstOrDefault();
         }
-        #endregion
+#endregion
     }
 }

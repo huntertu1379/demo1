@@ -19,12 +19,12 @@ namespace MISA.ApplicationCore.Services
         }
         #endregion
 
-        public virtual int AddCustomer(TEntity entity)
+        public virtual int Add(TEntity entity)
         {
             var isValid = validate(entity) ;
             if (isValid == true)
             {
-                return _baseRespository.AddCustomer(entity);
+                return _baseRespository.Add(entity);
             }
             else
             {
@@ -32,14 +32,14 @@ namespace MISA.ApplicationCore.Services
             }
         }
 
-        public int DeleteCustomer(Guid entityId)
+        public int Delete(Guid entityId)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity GetCustomerById(Guid entityId)
+        public TEntity GetEntityById(Guid entityId)
         {
-            throw new NotImplementedException();
+            return _baseRespository.GetEntityById(entityId);
         }
 
         public IEnumerable<TEntity> GetEntities()
@@ -47,7 +47,7 @@ namespace MISA.ApplicationCore.Services
             return _baseRespository.GetEntities();
         }
 
-        public int UpdateCustomer(TEntity entity)
+        public int Update(TEntity entity)
         {
             throw new NotImplementedException();
         }

@@ -13,6 +13,6 @@ class EmployeeJS extends baseJs {
     }
 
     setapiRouter() {
-        this.apiRouter = "/api/V1/customers";
+        this.apiRouter = "/api/V1/employees";
     }
 }

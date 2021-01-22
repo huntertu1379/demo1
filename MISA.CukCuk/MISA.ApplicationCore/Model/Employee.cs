@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MISA.ApplicationCore.Model
 {
-    public class Employee
+    public class Employee:BaseEntity
     {
-        public string EmployeeId { get; set; }
+        public Guid EmployeeId { get; set; }
         public string EmployeeCode { get; set; }
         public string FullName { get; set; }
         public DateTime? DateOfBirth { get; set; }
@@ -16,15 +16,12 @@ namespace MISA.ApplicationCore.Model
         public string PlaceOfIssue { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public string PositionName { get; set; }
-        public string DepartmentName { get; set; }
+        public string PositionGroupName { get; set; }
+        public string DepartmentGroupName { get; set; }
         public string PersonalTaxCode { get; set; }
         public float? Salary { get; set; }
-        public string JoinDate { get; set; }
-        public string JobStatus { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
+        public DateTime? JoinDate { get; set; }
+        public string WorkStatus { get; set; }
+
     }
 }

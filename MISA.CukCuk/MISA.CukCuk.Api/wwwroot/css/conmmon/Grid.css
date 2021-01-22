@@ -19,3 +19,7 @@
             padding:10px 8px 10px 10px;
             width: 50px;
         }
+
+        table tbody tr:nth-child(odd){
+            background-color:#fff
+        }

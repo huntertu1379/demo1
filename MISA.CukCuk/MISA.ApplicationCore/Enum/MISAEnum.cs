@@ -22,6 +22,8 @@ namespace MISA.ApplicationCore.Enum
         /// <summary>
         /// Thêm mới thành công
         /// </summary>
-        Success=200
+        Success=200,
+
+       Exception = 500
     }
 }

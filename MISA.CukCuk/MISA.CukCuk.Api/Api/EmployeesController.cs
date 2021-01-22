@@ -20,6 +20,7 @@ namespace MISA.CukCuk.Api.Api
         {
             _baseService = baseService;
         }
+
         #endregion
     }
 }

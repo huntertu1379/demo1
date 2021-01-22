@@ -32,7 +32,7 @@ namespace MISA.ApplicationCore.Model
 
     }
 
-    class BaseEntity
+    public class BaseEntity
     {
         /// <summary>
         /// ngày tạo

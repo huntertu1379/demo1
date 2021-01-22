@@ -34,16 +34,16 @@ namespace MISA.CukCuk.Api.Api
 
         // GET api/<BaseEntityController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public TEntity Get(Guid id)
         {
-            return "value";
+            return _baseService.GetEntityById(id);
         }
 
         // POST api/<BaseEntityController>
         [HttpPost]
         public int Post([FromBody] TEntity value)
         {
-            var rowAffect = _baseService.AddCustomer(value);
+            var rowAffect = _baseService.Add(value);
             return rowAffect;
         }
 

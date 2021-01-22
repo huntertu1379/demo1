@@ -13,6 +13,8 @@ using MISA.ApplicationCore.Interfaces;
 using MISA.ApplicationCore.Service;
 using MISA.ApplicationCore.Services;
 using MISA.Infrastructure.Reponsitory;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MISA.CukCuk.Api
 {
@@ -28,7 +30,14 @@ namespace MISA.CukCuk.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddCors();
+            services.AddControllers()
+                        .AddNewtonsoftJson(options =>
+                        {
+                            options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+                        });
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped(typeof(IBaseRespository<>), typeof(BaseRespository<>));
